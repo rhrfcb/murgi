@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MURGI RESTAURANT | Murgi Kabab, Kacchi &amp; Murgi Roast</title>
+<meta name="description" content="Experience delicious food, authentic flavors and unforgettable moments at MURGI RESTAURANT. Order Murgi Kabab, Kacchi and Murgi Roast online.">
+<meta property="og:title" content="MURGI RESTAURANT">
+<meta property="og:description" content="The art of great taste. Authentic flavors, exceptional food.">
+<meta property="og:type" content="restaurant">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23171717'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23C69A45' font-family='Georgia'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#171717;--ink2:#222;--cream:#F8F3E9;--gold:#C69A45;--beige:#E6DCC6;--mute:#8a8373}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:Inter,system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.1}
+img{max-width:100%;display:block}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1150px;margin:0 auto;padding:0 22px}
+section{padding:92px 0}
+.dark{background:var(--ink);color:var(--cream)}
+h2{font-size:clamp(2.1rem,5vw,3.4rem);margin-bottom:14px}
+.lead{max-width:60ch;color:var(--mute);margin-bottom:40px}
+.dark .lead{color:#b9b19d}
+.btn{display:inline-block;padding:13px 28px;border-radius:2px;font-weight:600;letter-spacing:.04em;text-decoration:none;transition:.25s;font-size:.92rem}
+.btn-gold{background:var(--gold);color:var(--ink)}.btn-gold:hover{background:#d8ac56}
+.btn-line{border:1px solid var(--gold);color:var(--gold)}.btn-line:hover{background:var(--gold);color:var(--ink)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(23,23,23,.96);backdrop-filter:blur(8px);color:var(--cream);border-bottom:1px solid #2c2c2c}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;letter-spacing:.12em;text-decoration:none;color:var(--gold)}
+.links{display:flex;gap:26px;align-items:center;list-style:none}
+.links a{text-decoration:none;font-size:.9rem;opacity:.85}.links a:hover{opacity:1;color:var(--gold)}
+.cartbtn{position:relative;padding:8px 10px}
+.badge{position:absolute;top:-4px;right:-6px;background:var(--gold);color:var(--ink);border-radius:99px;font-size:.7rem;font-weight:700;min-width:19px;height:19px;display:grid;place-items:center}
+.burger{display:none;width:40px;height:40px;position:relative}
+.burger span,.burger span:before,.burger span:after{position:absolute;left:9px;width:22px;height:2px;background:var(--cream);content:'';transition:.25s}
+.burger span{top:19px}.burger span:before{top:-7px;left:0}.burger span:after{top:7px;left:0}
+.burger.open span{background:transparent}.burger.open span:before{transform:translateY(7px) rotate(45deg)}.burger.open span:after{transform:translateY(-7px) rotate(-45deg)}
+/* hero */
+.hero{min-height:88vh;display:flex;align-items:center;color:var(--cream);padding:70px 0;
+background:linear-gradient(rgba(23,23,23,.74),rgba(23,23,23,.88)),var(--heroimg,none) center/cover,radial-gradient(circle at 75% 30%,#3a2d14,#171717 62%)}
+.hero h1{font-size:clamp(3rem,9vw,6.6rem);letter-spacing:.01em;max-width:11ch;margin-bottom:22px}
+.hero p{max-width:50ch;font-size:1.1rem;color:#d9d0bb;margin-bottom:34px}
+.hero .btns{display:flex;gap:14px;flex-wrap:wrap}
+.intro{margin-top:56px;display:flex;gap:34px;flex-wrap:wrap;color:#b9b19d;font-size:.9rem}
+.intro b{display:block;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.5rem}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:26px}
+.card{background:#fff;border:1px solid var(--beige);display:flex;flex-direction:column;transition:.3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.1)}
+.pic{position:relative;aspect-ratio:4/3;background:linear-gradient(135deg,#2a2a2a,#4a3a1c);display:grid;place-items:center;font-size:3.6rem;overflow:hidden}
+.pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.5s}
+.card:hover .pic img,.gal:hover img{transform:scale(1.06)}
+.tag{position:absolute;top:12px;left:12px;background:var(--gold);color:var(--ink);font-size:.72rem;font-weight:600;padding:3px 10px;z-index:2}
+.tag.off{background:#b33;color:#fff;left:auto;right:12px}
+.cbody{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cat{font-size:.78rem;color:var(--mute)}
+.cbody h3{font-size:1.7rem}
+.cbody p{font-size:.92rem;color:#555;flex:1}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:10px}
+.price{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700}
+.price small{font:400 .7rem Inter;color:var(--mute);display:block}
+.btn.sm{padding:9px 16px;font-size:.82rem;background:var(--ink);color:var(--cream)}.btn.sm:hover{background:var(--gold);color:var(--ink)}
+/* menu tools */
+.tools{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;margin-bottom:30px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:9px 18px;border:1px solid var(--ink);font-size:.86rem}
+.chip.on,.chip:hover{background:var(--ink);color:var(--gold)}
+input[type=search]{padding:11px 16px;border:1px solid var(--ink);background:#fff;min-width:240px;font:inherit}
+.empty{padding:40px;text-align:center;color:var(--mute);grid-column:1/-1}
+/* about */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.pts{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+.pts div{border-left:2px solid var(--gold);padding-left:14px;font-size:.92rem}.pts b{display:block;font-size:1rem}
+.aboutimg{aspect-ratio:1;background:linear-gradient(135deg,#2a2a2a,#6b5122);display:grid;place-items:center;font-size:7rem;border:1px solid var(--gold);outline:10px solid var(--cream);outline-offset:-22px}
+/* specialties */
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:2px}
+.spec:nth-child(even) .pic{order:2}
+.spec .pic{aspect-ratio:auto;min-height:340px;font-size:6rem}
+.spec .txt{padding:50px;display:flex;flex-direction:column;justify-content:center;gap:14px;background:#1f1f1f}
+.spec h3{font-size:2.6rem;color:var(--gold)}.spec p{color:#c9c0aa;max-width:46ch}
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal{position:relative;aspect-ratio:1;overflow:hidden;background:linear-gradient(135deg,#d9cdb0,#b59458);display:grid;place-items:center;font-size:3.5rem;width:100%}
+.gal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.5s}
+.gal span.cap{position:absolute;inset:auto 0 0 0;padding:14px;background:linear-gradient(transparent,rgba(0,0,0,.8));color:#fff;font-size:.9rem;opacity:0;transition:.3s;text-align:left}
+.gal:hover .cap,.gal:focus-visible .cap{opacity:1}
+/* why */
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.feat div{padding:30px 24px;border:1px solid #333}
+.feat svg{width:40px;height:40px;stroke:var(--gold);fill:none;stroke-width:1.5;margin-bottom:14px}
+.feat h3{font-size:1.6rem;margin-bottom:6px}.feat p{font-size:.9rem;color:#b9b19d}
+/* contact */
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.info dt{font-weight:600;margin-top:16px}.info dd{color:#555}
+.ph{color:var(--mute);font-style:italic}
+.cbtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.map{min-height:320px;border:1px solid var(--beige);background:var(--beige);display:grid;place-items:center;text-align:center;padding:20px;color:var(--mute)}
+.map iframe{width:100%;height:100%;min-height:320px;border:0}
+/* footer */
+footer{background:#0f0f0f;color:#b9b19d;padding:60px 0 24px;font-size:.9rem}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:30px;margin-bottom:36px}
+footer h4{color:var(--cream);margin-bottom:10px;font-weight:600}
+footer ul{list-style:none}footer li{margin:6px 0}footer a{text-decoration:none}footer a:hover{color:var(--gold)}
+.copy{border-top:1px solid #2a2a2a;padding-top:20px;text-align:center}
+/* floating */
+.fab{position:fixed;right:18px;bottom:18px;z-index:40;box-shadow:0 8px 20px rgba(0,0,0,.35)}
+.top{position:fixed;left:18px;bottom:18px;z-index:40;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--gold);border:1px solid var(--gold);opacity:0;pointer-events:none;transition:.3s}
+.top.show{opacity:1;pointer-events:auto}
+/* drawer & overlays */
+.shade{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:60;opacity:0;pointer-events:none;transition:.3s}
+.shade.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--cream);z-index:70;transform:translateX(100%);transition:.35s;display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.dh{padding:20px;background:var(--ink);color:var(--cream);display:flex;justify-content:space-between;align-items:center}
+.dh h3{font-size:1.7rem;color:var(--gold)}
+.items{flex:1;overflow:auto;padding:14px 20px}
+.it{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:14px 0;border-bottom:1px solid var(--beige)}
+.it small{color:var(--mute)}
+.qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+.qty button{width:28px;height:28px;border:1px solid var(--ink)}.qty button:hover{background:var(--ink);color:var(--gold)}
+.rm{color:#b33;font-size:.8rem;text-decoration:underline}
+.df{padding:20px;border-top:1px solid var(--beige);background:#fff}
+.tot{display:flex;justify-content:space-between;font-size:1.3rem;font-weight:600;margin-bottom:14px}
+.modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-48%);width:min(520px,92%);max-height:90vh;overflow:auto;background:var(--cream);z-index:80;padding:30px;opacity:0;pointer-events:none;transition:.3s;border-top:4px solid var(--gold)}
+.modal.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.modal h3{font-size:2rem;margin-bottom:10px}
+.modal ol{margin:12px 0 12px 20px;font-size:.92rem}
+.modal textarea{width:100%;height:150px;padding:10px;font:.82rem monospace;border:1px solid var(--beige);margin:8px 0 14px}
+.lb{background:rgba(0,0,0,.92);padding:0;width:min(900px,94%);background:#111;color:#fff;text-align:center}
+.lb .big{aspect-ratio:4/3;display:grid;place-items:center;font-size:8rem;background:linear-gradient(135deg,#2a2a2a,#6b5122);position:relative}
+.lb .big img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#111}
+.lb p{padding:14px}
+.lb .x{position:absolute;top:8px;right:12px;font-size:2rem;z-index:3;color:#fff}
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--cream);padding:12px 22px;border-left:3px solid var(--gold);z-index:90;opacity:0;transition:.3s;pointer-events:none;max-width:90%}
+.toast.on{opacity:1;transform:translateX(-50%)}
+/* reveal: only the hero heading animates in, sections just appear */
+.rv{opacity:0;transform:translateY(18px);transition:.7s}.rv.in{opacity:1;transform:none}
+@media(max-width:860px){
+ section{padding:64px 0}
+ .burger{display:block}
+ .links{position:absolute;top:68px;left:0;right:0;background:var(--ink);flex-direction:column;padding:20px;gap:18px;display:none;border-bottom:1px solid #333}
+ .links.open{display:flex}
+ .two,.cgrid,.spec{grid-template-columns:1fr}
+ .spec:nth-child(even) .pic{order:0}.spec .txt{padding:30px 22px}
+ .gallery{grid-template-columns:1fr 1fr}
+ .fgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){.fgrid{grid-template-columns:1fr}.pts{grid-template-columns:1fr}input[type=search]{min-width:0;width:100%}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="wrap nav">
+  <a class="logo" href="#home">MURGI RESTAURANT</a>
+  <ul class="links" id="links">
+   <li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#menu">Menu</a></li>
+   <li><a href="#specialties">Our Specialties</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#contact">Contact</a></li>
+   <li><button class="btn btn-gold" data-open-cart>Order Now</button></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:6px">
+   <button class="cartbtn" data-open-cart aria-label="Open your order">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F8F3E9" stroke-width="1.6"><path d="M6 6h15l-2 9H8L6 6zm0 0L5 3H2M9 20a1 1 0 100-2 1 1 0 000 2zm9 0a1 1 0 100-2 1 1 0 000 2z"/></svg>
+    <span class="badge" id="badge">0</span>
+   </button>
+   <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+  </div>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div class="wrap">
+  <h1 class="rv">THE ART OF GREAT TASTE</h1>
+  <p>Experience delicious food, authentic flavors and unforgettable moments at MURGI RESTAURANT.</p>
+  <div class="btns"><a href="#menu" class="btn btn-gold">Explore Our Menu</a><button class="btn btn-line" data-open-cart>Order Now</button></div>
+  <div class="intro"><div><b>Murgi Kabab</b>Seasoned and grilled</div><div><b>Kacchi</b>Slow-cooked, aromatic</div><div><b>Murgi Roast</b>Rich spice blend</div></div>
+ </div>
+</section>
+
+<section id="featured">
+ <div class="wrap">
+  <h2 class="rv">Featured dishes</h2>
+  <p class="lead">Our three signature dishes, prepared fresh to order.</p>
+  <div class="grid" id="featGrid"></div>
+ </div>
+</section>
+
+<section class="dark" id="about">
+ <div class="wrap two">
+  <div class="rv">
+   <h2>A PASSION FOR GREAT FOOD</h2>
+   <p style="color:#c9c0aa">At MURGI RESTAURANT, we believe great food brings people together. Our passion for authentic flavors, carefully prepared dishes and warm hospitality makes every visit special.</p>
+   <div class="pts">
+    <div><b>Our story</b>Born from a love of traditional chicken recipes.</div>
+    <div><b>Food quality</b>Every dish is checked before it leaves the kitchen.</div>
+    <div><b>Fresh ingredients</b>Prepared fresh, never reheated for show.</div>
+    <div><b>Hospitality</b>Guests are treated like family.</div>
+   </div>
+  </div>
+  <div class="aboutimg rv" aria-hidden="true">🍗</div>
+ </div>
+</section>
+
+<section id="menu">
+ <div class="wrap">
+  <h2 class="rv">Our menu</h2>
+  <p class="lead">Filter by category or search for a dish, then add it to your order.</p>
+  <div class="tools">
+   <div class="filters" id="filters" role="group" aria-label="Menu categories"></div>
+   <input type="search" id="search" placeholder="Search dishes" aria-label="Search dishes">
+  </div>
+  <div class="grid" id="menuGrid" aria-live="polite"></div>
+ </div>
+</section>
+
+<section class="dark" id="specialties" style="padding:0">
+ <div id="specList"></div>
+</section>
+
+<section id="gallery">
+ <div class="wrap">
+  <h2 class="rv">Gallery</h2>
+  <p class="lead">A look at our kitchen, our dishes and our dining room. Select a photo to enlarge it.</p>
+  <div class="gallery" id="galGrid"></div>
+ </div>
+</section>
+
+<section class="dark" id="why">
+ <div class="wrap">
+  <h2 class="rv">Why choose us?</h2>
+  <p class="lead">Four promises we keep with every plate.</p>
+  <div class="feat">
+   <div><svg viewBox="0 0 24 24"><path d="M12 2c4 4 6 7 6 11a6 6 0 01-12 0c0-4 2-7 6-11zM12 22V12"/></svg><h3>Quality Ingredients</h3><p>Carefully selected chicken, rice and spices.</p></div>
+   <div><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3z"/></svg><h3>Authentic Flavors</h3><p>Traditional recipes cooked the traditional way.</p></div>
+   <div><svg viewBox="0 0 24 24"><path d="M12 6v6l4 2M12 22a10 10 0 100-20 10 10 0 000 20z"/></svg><h3>Freshly Prepared Food</h3><p>Cooked to order so it reaches you hot.</p></div>
+   <div><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg><h3>Customer Satisfaction</h3><p>Your enjoyment is how we measure our work.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="wrap">
+  <h2 class="rv">Contact &amp; location</h2>
+  <p class="lead">Call, message or visit us.</p>
+  <div class="cgrid">
+   <div>
+    <dl class="info" id="info"></dl>
+    <div class="cbtns">
+     <a class="btn btn-gold" id="callBtn" href="#">Call Now</a>
+     <a class="btn btn-gold" id="waBtn" href="#" target="_blank" rel="noopener">WhatsApp</a>
+     <a class="btn btn-line" style="color:var(--ink);border-color:var(--ink)" id="dirBtn" href="#" target="_blank" rel="noopener">Get Directions</a>
+    </div>
+   </div>
+   <div class="map" id="map">Google Maps will appear here once the address is added in CONFIG.</div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="fgrid">
+   <div><a class="logo" href="#home" style="font-size:1.3rem">MURGI RESTAURANT</a><p style="margin-top:10px">Authentic flavors, carefully prepared dishes and warm hospitality.</p></div>
+   <div><h4>Navigate</h4><ul><li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#contact">Contact</a></li></ul></div>
+   <div><h4>Menu</h4><ul><li><a href="#menu" data-cat="Kabab">Kabab</a></li><li><a href="#menu" data-cat="Biryani">Biryani</a></li><li><a href="#menu" data-cat="Chicken">Chicken</a></li><li><a href="#menu" data-cat="Special Dishes">Special Dishes</a></li></ul></div>
+   <div><h4>Find us</h4><ul id="fInfo"></ul></div>
+  </div>
+  <p class="copy">© 2026 MURGI RESTAURANT. All Rights Reserved.</p>
+ </div>
+</footer>
+
+<button class="btn btn-gold fab" data-open-cart>Order Now</button>
+<button class="top" id="top" aria-label="Back to top">↑</button>
+
+<div class="shade" id="shade"></div>
+<aside class="drawer" id="drawer" aria-label="Your order" aria-hidden="true">
+ <div class="dh"><h3>Your order</h3><button id="closeCart" aria-label="Close order" style="font-size:1.8rem">×</button></div>
+ <div class="items" id="items"></div>
+ <div class="df">
+  <div class="tot"><span>Total</span><span id="grand"></span></div>
+  <button class="btn btn-gold" style="width:100%" id="checkout">Proceed to Order</button>
+  <button class="rm" id="clear" style="margin-top:10px">Clear order</button>
+ </div>
+</aside>
+
+<div class="modal" id="doneModal" role="dialog" aria-modal="true" aria-labelledby="dmT">
+ <h3 id="dmT">One more step</h3>
+ <p id="dmMsg"></p>
+ <ol>
+  <li>Fill in your name, phone number and delivery details in the form.</li>
+  <li>Paste your order summary into the order field (long-press or Ctrl+V).</li>
+  <li>Submit the form. Your order is only placed after you submit it.</li>
+ </ol>
+ <textarea id="sumText" readonly aria-label="Order summary"></textarea>
+ <div class="cbtns" style="margin-top:0">
+  <button class="btn btn-gold" id="copyAgain">Copy summary again</button>
+  <a class="btn btn-line" style="color:var(--ink);border-color:var(--ink)" id="formLink" target="_blank" rel="noopener">Open form again</a>
+  <button class="btn sm" id="closeDone">Close</button>
+ </div>
+</div>
+
+<div class="modal lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+ <button class="x" id="lbX" aria-label="Close photo">×</button>
+ <div class="big" id="lbBig"></div><p id="lbCap"></p>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* =====================================================================
+   OWNER SETTINGS — edit this section only
+   ===================================================================== */
+const CONFIG = {
+  currency: '৳',
+  priceIsSample: true,   // set to false once real prices are entered below
+  formUrl: 'https://forms.gle/tKvkTggpgxRCGZTz7',
+  heroImage: '',         // optional: URL of a hero background photo
+  phone: '',             // e.g. '+8801XXXXXXXXX'
+  whatsapp: '',          // digits only with country code, e.g. '8801XXXXXXXXX'
+  email: '',
+  address: '',           // e.g. 'Road 1, Jessore'
+  hours: '',             // e.g. 'Daily 11:00 AM – 11:00 PM'
+  social: { Facebook: '', Instagram: '' }
+};
+/* Add, edit or remove dishes here. img = photo URL (leave '' to show a placeholder). */
+const MENU = [
+  { id:'murgi-kabab', name:'Murgi Kabab', cat:'Kabab',  price:250, icon:'🍢', img:'', featured:true, available:true,
+    desc:'Deliciously seasoned chicken kabab prepared with authentic spices.' },
+  { id:'kacchi',      name:'Kacchi',      cat:'Biryani', price:450, icon:'🍛', img:'', featured:true, available:true,
+    desc:'Traditional aromatic kacchi biryani with rich spices and flavorful rice.' },
+  { id:'murgi-roast', name:'Murgi Roast', cat:'Chicken', price:300, icon:'🍗', img:'', featured:true, available:true,
+    desc:'Traditional-style chicken roast prepared with a rich and flavorful spice blend.' }
+];
+const CATEGORIES = ['All Items','Kabab','Biryani','Chicken','Special Dishes'];
+const GALLERY = [
+  { t:'Chicken dishes', icon:'🍗', img:'' }, { t:'Murgi Kabab', icon:'🍢', img:'' }, { t:'Kacchi', icon:'🍛', img:'' },
+  { t:'Murgi Roast', icon:'🍖', img:'' }, { t:'Restaurant interior', icon:'🪑', img:'' }, { t:'Dining experience', icon:'🍽️', img:'' }
+];
+/* ===================================================================== */
+
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money = n => CONFIG.currency + Number(n).toLocaleString('en-US', {maximumFractionDigits:2});
+const KEY = 'murgi_cart_v1';
+let cart = {}, cat = 'All Items';
+
+/* ---------- storage (safe if blocked) ---------- */
+function load(){ try{ const c = JSON.parse(localStorage.getItem(KEY)||'{}'); Object.keys(c).forEach(id=>{ if(MENU.some(m=>m.id===id && m.available) && Number.isInteger(c[id]) && c[id]>0) cart[id]=c[id]; }); }catch(e){ cart={}; } }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(cart)); }catch(e){} }
+
+/* ---------- toast ---------- */
+let tt; function toast(m){ const t=$('#toast'); t.textContent=m; t.classList.add('on'); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('on'),2800); }
+
+/* ---------- pictures ---------- */
+const pic = (o, tag='', cls='pic') => `<div class="${cls}">${tag}<span aria-hidden="true">${o.icon||'🍽️'}</span>${o.img?`<img src="${esc(o.img)}" alt="${esc(o.name||o.t)}" loading="lazy" onerror="this.remove()">`:''}</div>`;
+
+/* ---------- dish cards ---------- */
+function card(m){
+  const tags = (m.featured?'<span class="tag">Featured</span>':'') + (!m.available?'<span class="tag off">Sold out</span>':'');
+  return `<article class="card">${pic(m,tags)}<div class="cbody"><span class="cat">${esc(m.cat)}</span><h3>${esc(m.name)}</h3><p>${esc(m.desc)}</p>
+  <div class="row"><span class="price">${money(m.price)}${CONFIG.priceIsSample?'<small>Sample price</small>':''}</span>
+  <button class="btn sm" data-add="${esc(m.id)}" ${m.available?'':'disabled'}>${m.available?'Add to Order':'Unavailable'}</button></div></div></article>`;
+}
+function renderFeatured(){ $('#featGrid').innerHTML = MENU.filter(m=>m.featured).slice(0,3).map(card).join(''); }
+function renderFilters(){
+  $('#filters').innerHTML = CATEGORIES.map(c=>`<button class="chip ${c===cat?'on':''}" data-cat="${esc(c)}" aria-pressed="${c===cat}">${esc(c)}</button>`).join('');
+}
+function renderMenu(){
+  const q = $('#search').value.trim().toLowerCase();
+  const list = MENU.filter(m => (cat==='All Items'||m.cat===cat) && (!q || (m.name+' '+m.desc+' '+m.cat).toLowerCase().includes(q)));
+  $('#menuGrid').innerHTML = list.length ? list.map(card).join('') : '<p class="empty">No dishes match. Try another category or search word.</p>';
+}
+function setCat(c){ cat=c; renderFilters(); renderMenu(); }
+function renderSpecs(){
+  const picks = [['Signature Murgi Kabab','murgi-kabab','Juicy chicken marinated in our house spice blend and cooked until perfectly tender.'],
+                 ['Traditional Kacchi','kacchi','Fragrant rice and spiced meat layered and slow-cooked together, the way it has always been done.'],
+                 ['Special Murgi Roast','murgi-roast','A deep, rich roast with a spice blend that rewards every bite.']];
+  $('#specList').innerHTML = picks.map(([t,id,d])=>{ const m = MENU.find(x=>x.id===id) || {icon:'🍽️',img:'',name:t};
+    return `<div class="spec">${pic(m)}<div class="txt"><h3>${esc(t)}</h3><p>${esc(d)}</p><div><button class="btn btn-gold" data-add="${esc(id)}">Add to Order</button></div></div></div>`; }).join('');
+}
+function renderGallery(){
+  $('#galGrid').innerHTML = GALLERY.map((g,i)=>`<button class="gal" data-lb="${i}" aria-label="View photo: ${esc(g.t)}"><span aria-hidden="true">${g.icon}</span>${g.img?`<img src="${esc(g.img)}" alt="${esc(g.t)}" loading="lazy" onerror="this.remove()">`:''}<span class="cap">${esc(g.t)}</span></button>`).join('');
+}
+
+/* ---------- cart ---------- */
+const count = () => Object.values(cart).reduce((a,b)=>a+b,0);
+const lines = () => Object.keys(cart).map(id=>{ const m=MENU.find(x=>x.id===id); return m?{m,q:cart[id],sub:m.price*cart[id]}:null; }).filter(Boolean);
+const total = () => lines().reduce((a,l)=>a+l.sub,0);
+function add(id){ const m=MENU.find(x=>x.id===id); if(!m||!m.available){toast('This dish is not available right now.');return;} cart[id]=(cart[id]||0)+1; save(); renderCart(); toast(m.name+' added to your order'); }
+function change(id,d){ cart[id]=(cart[id]||0)+d; if(cart[id]<=0) delete cart[id]; save(); renderCart(); }
+function renderCart(){
+  const n = count(); $('#badge').textContent = n;
+  const L = lines();
+  $('#items').innerHTML = L.length ? L.map(({m,q,sub})=>`<div class="it"><div><b>${esc(m.name)}</b><br><small>${money(m.price)} each</small>
+    <div class="qty"><button data-dec="${esc(m.id)}" aria-label="Decrease ${esc(m.name)}">−</button><span aria-live="polite">${q}</span><button data-inc="${esc(m.id)}" aria-label="Increase ${esc(m.name)}">+</button></div></div>
+    <div style="text-align:right"><b>${money(sub)}</b><br><button class="rm" data-rm="${esc(m.id)}">Remove</button></div></div>`).join('')
+    : '<p class="empty">Your order is empty. Add a dish from the menu to start.</p>';
+  $('#grand').textContent = money(total());
+  $('#checkout').disabled = !L.length; $('#clear').style.visibility = L.length?'visible':'hidden';
+}
+function openCart(){ $('#drawer').classList.add('on'); $('#shade').classList.add('on'); $('#drawer').setAttribute('aria-hidden','false'); $('#closeCart').focus(); }
+function closeAll(){ ['#drawer','#shade','#doneModal','#lb'].forEach(s=>$(s).classList.remove('on')); $('#drawer').setAttribute('aria-hidden','true'); }
+
+/* ---------- checkout ---------- */
+function summary(){
+  const L = lines();
+  return ['MURGI RESTAURANT — ORDER SUMMARY','',...L.map(({m,q,sub})=>`${q} x ${m.name} @ ${money(m.price)} = ${money(sub)}`),'',`TOTAL: ${money(total())}`+(CONFIG.priceIsSample?'  (prices to be confirmed by the restaurant)':'')].join('\n');
+}
+async function copyText(t){
+  try{ if(navigator.clipboard && window.isSecureContext){ await navigator.clipboard.writeText(t); return true; } }catch(e){}
+  try{ const ta=document.createElement('textarea'); ta.value=t; ta.style.cssText='position:fixed;opacity:0'; document.body.appendChild(ta); ta.select(); const ok=document.execCommand('copy'); ta.remove(); return ok; }catch(e){ return false; }
+}
+async function checkout(){
+  if(!count()){ toast('Your order is empty.'); return; }
+  const s = summary(), copied = await copyText(s);
+  let win = null; try{ win = window.open(CONFIG.formUrl,'_blank','noopener'); }catch(e){}
+  $('#sumText').value = s; $('#formLink').href = CONFIG.formUrl;
+  $('#dmMsg').textContent = (copied ? 'Your order summary is copied. ' : 'We could not copy automatically, so please copy the summary below. ')
+    + (win ? 'The order form has opened in a new tab.' : 'Your browser blocked the new tab, so use “Open form again”.');
+  $('#doneModal').classList.add('on'); $('#shade').classList.add('on'); $('#drawer').classList.remove('on');
+}
+
+/* ---------- lightbox ---------- */
+function openLb(i){ const g=GALLERY[i]; if(!g) return;
+  $('#lbBig').innerHTML = `<span aria-hidden="true">${g.icon}</span>${g.img?`<img src="${esc(g.img)}" alt="${esc(g.t)}" onerror="this.remove()">`:''}`;
+  $('#lbCap').textContent = g.t; $('#lb').classList.add('on'); $('#shade').classList.add('on'); $('#lbX').focus(); }
+
+/* ---------- contact ---------- */
+function setupContact(){
+  const C=CONFIG, ph=t=>`<span class="ph">${t}</span>`;
+  $('#info').innerHTML = `<dt>Address</dt><dd>${C.address?esc(C.address):ph('Add your address in CONFIG')}</dd><dt>Phone</dt><dd>${C.phone?esc(C.phone):ph('Add your phone number in CONFIG')}</dd>
+    <dt>WhatsApp</dt><dd>${C.whatsapp?esc(C.whatsapp):ph('Add your WhatsApp number in CONFIG')}</dd><dt>Email</dt><dd>${C.email?`<a href="mailto:${esc(C.email)}">${esc(C.email)}</a>`:ph('Add your email in CONFIG')}</dd>
+    <dt>Opening hours</dt><dd>${C.hours?esc(C.hours):ph('Add your opening hours in CONFIG')}</dd>`;
+  const wire=(sel,href,msg)=>{ const a=$(sel); if(href){ a.href=href; } else { a.href='#contact'; a.addEventListener('click',e=>{e.preventDefault();toast(msg);}); a.style.opacity='.6'; } };
+  wire('#callBtn', C.phone&&'tel:'+C.phone.replace(/[^\d+]/g,''), 'Phone number is not set yet.');
+  wire('#waBtn', C.whatsapp&&'https://wa.me/'+C.whatsapp.replace(/\D/g,''), 'WhatsApp number is not set yet.');
+  const q = C.address && encodeURIComponent(C.address);
+  wire('#dirBtn', q&&'https://www.google.com/maps/dir/?api=1&destination='+q, 'Address is not set yet.');
+  if(q) $('#map').innerHTML = `<iframe title="Restaurant location on Google Maps" loading="lazy" src="https://maps.google.com/maps?q=${q}&output=embed"></iframe>`;
+  const f=[]; if(C.address)f.push(esc(C.address)); if(C.phone)f.push(esc(C.phone)); if(C.hours)f.push(esc(C.hours));
+  Object.entries(C.social).forEach(([n,u])=>{ if(u) f.push(`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`); });
+  $('#fInfo').innerHTML = f.length ? f.map(x=>`<li>${x}</li>`).join('') : '<li><a href="#contact">Contact details coming soon</a></li>';
+}
+
+/* ---------- events (one delegated handler) ---------- */
+document.addEventListener('click', e=>{
+  const t = e.target.closest('button,a'); if(!t) return;
+  if(t.dataset.add) add(t.dataset.add);
+  else if(t.dataset.inc) change(t.dataset.inc,1);
+  else if(t.dataset.dec) change(t.dataset.dec,-1);
+  else if(t.dataset.rm) change(t.dataset.rm,-(cart[t.dataset.rm]||0));
+  else if(t.dataset.lb!==undefined) openLb(+t.dataset.lb);
+  else if(t.matches('[data-open-cart]')){ $('#links').classList.remove('open'); openCart(); }
+  else if(t.dataset.cat){ setCat(t.dataset.cat); }
+  if(t.closest('#links') && t.tagName==='A'){ $('#links').classList.remove('open'); $('#burger').classList.remove('open'); $('#burger').setAttribute('aria-expanded','false'); }
+});
+$('#burger').onclick = ()=>{ const o=$('#links').classList.toggle('open'); $('#burger').classList.toggle('open',o); $('#burger').setAttribute('aria-expanded',o); };
+$('#closeCart').onclick = $('#shade').onclick = $('#closeDone').onclick = $('#lbX').onclick = closeAll;
+$('#clear').onclick = ()=>{ cart={}; save(); renderCart(); toast('Order cleared'); };
+$('#checkout').onclick = checkout;
+$('#copyAgain').onclick = async()=>toast(await copyText($('#sumText').value)?'Summary copied':'Copy failed. Select the text and copy it manually.');
+$('#search').addEventListener('input', renderMenu);
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeAll(); });
+$('#top').onclick = ()=>window.scrollTo({top:0,behavior:'smooth'});
+addEventListener('scroll', ()=>$('#top').classList.toggle('show', scrollY>600), {passive:true});
+addEventListener('storage', e=>{ if(e.key===KEY){ cart={}; load(); renderCart(); } });
+
+/* ---------- init ---------- */
+if(CONFIG.heroImage) $('#home').style.setProperty('--heroimg',`url("${CONFIG.heroImage.replace(/"/g,'%22')}")`);
+load(); renderFeatured(); renderFilters(); renderMenu(); renderSpecs(); renderGallery(); renderCart(); setupContact();
+if('IntersectionObserver' in window){ const io=new IntersectionObserver(es=>es.forEach(x=>{ if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);} }),{threshold:.15}); $$('.rv').forEach(el=>io.observe(el)); }
+else $$('.rv').forEach(el=>el.classList.add('in'));
+</script>
+</body>
+</html>
